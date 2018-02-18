@@ -10,7 +10,6 @@ class Feed {
   final String language;
   final String copyright;
   final String pubDate;
-  final String comments;
   final String lastBuildDate;
   final FeedImage image;
   final List<FeedItem> items;
@@ -22,7 +21,6 @@ class Feed {
     this.language,
     this.copyright,
     this.pubDate,
-    this.comments,
     this.lastBuildDate,
     this.image,
     this.items,
@@ -73,11 +71,6 @@ class Feed {
       pubDate = node.findElements('pubDate').single.text;
     } catch (e) {}
 
-    String comments;
-    try {
-      comments = node.findElements('comments').single.text;
-    } catch (e) {}
-
     String lastBuildDate;
     try {
       lastBuildDate = node.findElements('lastBuildDate').single.text;
@@ -106,7 +99,6 @@ class Feed {
       language: language,
       lastBuildDate: lastBuildDate,
       pubDate: pubDate,
-      comments: comments,
       items: items,
     );
   }
@@ -119,7 +111,6 @@ class Feed {
       language: $language
       copyright: $copyright
       pubDate: $pubDate
-      comments: $comments
       lastBuildDate: $lastBuildDate
       image: $image
       items: $items
